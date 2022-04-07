@@ -1,5 +1,5 @@
 {
-    "appService.deploySubpath": "dist\\anglo-american-ui",
+    "appService.deploySubpath": "dist\\commodity-insights",
     "appService.zipIgnorePattern": [
         "node_modules{,/**}",
         ".vscode{,/**}"

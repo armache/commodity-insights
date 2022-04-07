@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "anglo-american-ui": {
+    "commodity-insights": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/anglo-american-ui",
+            "outputPath": "dist/commodity-insights",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -69,10 +69,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "anglo-american-ui:build:production"
+              "browserTarget": "commodity-insights:build:production"
             },
             "development": {
-              "browserTarget": "anglo-american-ui:build:development"
+              "browserTarget": "commodity-insights:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -80,7 +80,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "anglo-american-ui:build"
+            "browserTarget": "commodity-insights:build"
           }
         },
         "test": {
@@ -104,5 +104,5 @@
       }
     }
   },
-  "defaultProject": "anglo-american-ui"
+  "defaultProject": "commodity-insights"
 }
