@@ -37,4 +37,4 @@ steps:
     SlotName: 'production'
     ResourceGroupName: 'demo-rg'
     deployToSlotOrASE: true
-    #startUpCommand: 'pm2 serve /home/site/wwwroot --spa --no-daemon'
+    startUpCommand: 'pm2 serve /home/site/wwwroot --spa --no-daemon'
