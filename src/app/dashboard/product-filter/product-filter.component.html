@@ -1,0 +1,21 @@
+<div fxLayout="row" fxLayoutGap="20px">
+  <div fxLayoutAlign="start start">
+    <mat-form-field style="width:80px;">
+      <mat-label>Select Year:</mat-label>
+      <mat-select (selectionChange)="productYearChanged($event.value)" [value]="selectedYear">
+        <mat-option *ngFor="let year of years$ | async" [value]="year">{{year}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div fxLayoutAlign="start center">
+    <section fxLayout="row" fxLayoutGap="20px">
+      <div *ngFor="let productName of productNames$ | async">
+        <mat-checkbox 
+          [formControl]="allProducts" 
+          [value]="productName" 
+          [checked]="productChecked" 
+          (change)="showHideProduct(productName)">{{productName}}</mat-checkbox>
+      </div>
+    </section>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="login-wrapper" fxLayoutAlign="center center">
+
+    <div style="display:flex;flex-direction:column;">
+      <mat-form-field style="width:250px;">
+        <mat-label>Select a role to login:</mat-label>
+        <mat-select (selectionChange)="change($event.value)">
+          <mat-option *ngFor="let role of options" [value]="role">{{role}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div>
+        <button mat-raised-button color="primary" (click)="login()" 
+            [disabled]="selectedRole === 'None'">Login <span class="material-icons">login</span></button>
+      </div>
+      <div class="error-box" *ngIf="errorMessage$ | async as errorMessage">
+        <span>{{errorMessage}}</span>
+      </div>
+    </div>
+
+  </div>

@@ -1,0 +1,9 @@
+.user-info {
+    padding-right: 15px;
+    font-weight: normal;
+    font-size: 14px;
+}
+
+.logout-icon {
+    cursor:pointer;
+}

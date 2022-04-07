@@ -1,0 +1,4 @@
+:host ::ng-deep .mat-tab-body {
+    padding: 50px !important;
+    padding-top: 25px !important;
+}

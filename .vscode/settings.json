@@ -1,0 +1,8 @@
+{
+    "appService.deploySubpath": "dist\\anglo-american-ui",
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/3d8f0b11-83b7-4be3-acda-4419b563a64a/resourceGroups/demo-rg/providers/Microsoft.Web/sites/commodity-insights"
+}

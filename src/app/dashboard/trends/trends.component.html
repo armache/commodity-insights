@@ -1,0 +1,15 @@
+<div fxLayout="row" fxLayoutGap="140px">
+    <div class="chart-canvas">
+        <canvas baseChart width="400" height="400" 
+            [data]="lineChartData" 
+            [options]="lineChartOptions"
+            [type]="lineChartType" 
+            (chartHover)="chartHovered($event)"
+            (chartClick)="chartClicked($event)">
+        </canvas>
+    </div>
+    <div fxLayout="column" fxLayoutGap="20px">
+        <aa-product-filter ></aa-product-filter>
+        <aa-key-metrics-table></aa-key-metrics-table>        
+    </div>
+</div>
