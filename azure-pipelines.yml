@@ -34,3 +34,7 @@ steps:
     appType: 'webAppLinux'
     WebAppName: 'commodity-insights'
     packageForLinux: '$(build.artifactstagingdirectory)'
+    SlotName: 'production'
+    ResourceGroupName: 'demo-rg'
+    deployToSlotOrASE: true
+    startUpCommand: 'pm2 serve /home/site/wwwroot --spa --no-daemon'
