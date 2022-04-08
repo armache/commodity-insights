@@ -15,7 +15,7 @@ import { UserEffects } from './state/user.effects';
   imports: [
     SharedModule,
     UserRoutingModule,
-    StoreModule.forFeature('user', userReducer),
+    StoreModule.forFeature('userState', userReducer),
     EffectsModule.forFeature([UserEffects])
   ],
   exports:[

@@ -40,7 +40,7 @@ export const userReducer = createReducer<UserState>(
     })
 );
 
-export const getUserState = createFeatureSelector<UserState>('user');
+export const getUserState = createFeatureSelector<UserState>('userState');
 
 export const getIsAuthenticatd =  createSelector(
     getUserState,

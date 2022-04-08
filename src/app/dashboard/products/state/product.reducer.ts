@@ -33,7 +33,7 @@ export const productReducer = createReducer<ProductState>(
     }),
 );
 
-export const getProductState = createFeatureSelector<ProductState>('products');
+export const getProductState = createFeatureSelector<ProductState>('productState');
 
 export const getProducts =  createSelector(
     getProductState,

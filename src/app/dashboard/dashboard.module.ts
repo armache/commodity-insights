@@ -16,25 +16,20 @@ import { ProductFilterService } from './products/product-filter/product-filter.s
 import { ProductFilterComponent } from './products/product-filter/product-filter.component';
 import { ProductService } from './products/product.service';
 import { MonthlyPnlPipe } from './products/key-metrics-table/monthly-pnl.pipe';
+import { ProductsModule } from './products/products.module';
+import { TradeLogsModule } from './trade-logs/trade-logs.module';
 
 @NgModule({
   declarations: [
-    DashboardComponent,
-    TrendsComponent,
-    ProductFilterComponent,
-    KeyMetricsTableComponent,
-    TradeLogsComponent,
-    MonthlyPnlPipe
+    DashboardComponent
   ],
   imports: [
     DashboardRoutingModule,
     SharedModule,
-    NgChartsModule,
-    StoreModule.forFeature('products', productReducer),
-    EffectsModule.forFeature([ProductEffects]),
-    FormsModule,
-    ReactiveFormsModule
+    ProductsModule,
+    TradeLogsModule
   ],
+
   providers: [
     ProductService,
     ProductFilterService
