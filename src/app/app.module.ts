@@ -14,6 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EffectsModule } from '@ngrx/effects';
 import { NgChartsModule } from 'ng2-charts';
 import { HttpClientModule } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @NgModule({  
   imports: [
@@ -25,10 +26,10 @@ import { HttpClientModule } from '@angular/common/http';
     UserModule,
     DashboardModule,
     StoreModule.forRoot({}, {}),
-    StoreDevtoolsModule.instrument({
+    !environment.production ? StoreDevtoolsModule.instrument({
       name: 'Commodity Insights',
       maxAge: 25
-    }),
+    }) : [],
     EffectsModule.forRoot([]),
     NgChartsModule,
     HttpClientModule
