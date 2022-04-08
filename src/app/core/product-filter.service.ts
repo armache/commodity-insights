@@ -29,34 +29,22 @@ export class ProductFilterService {
 
   changeYearFilter(year: number) {
     this.selectedYearSubject.next(year);
-    //this.resetProductTogglesSubject.next();
-    this.reset();
-  }
-
-  reset() {
-    let checkboxes = document.getElementsByTagName('mat-checkbox');
-
-    for(let i = 0; i < checkboxes.length; i++) {
-      //console.log('xx', (<MatCheckbox>checkboxes[i]).checked);
-    }
   }
 
   toggleProduct(productName: string) {
-    console.log('dddd');
-    if(!this.checkboxValues.has(productName)) {
+    if (!this.checkboxValues.has(productName)) {
       this.checkboxValues.set(productName, false);
     }
 
     this.productToggleSubject.next(productName);
   }
 
-  resetProductToggles() {    
+  resetProductToggles() {
     this.checkboxValues.forEach((value: boolean, key: string) => {
-      //console.log(key, value);
-      if(!value) {
+      if (!value) {
         this.productToggleSubject.next(key);
       }
-  });
+    });
   }
 
   public setDefaultFilterValues() {

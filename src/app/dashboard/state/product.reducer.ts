@@ -1,7 +1,7 @@
 import { createFeatureSelector, createReducer, createSelector, on } from "@ngrx/store";
 import { ProductState } from "./product.state";
 import * as ProductActions from './product.actions';
-import { HistoricalPnl } from "src/app/shared/models/product";
+import * as UserActions from '../../user/state/user.actions';
 import { ChartProduct } from "src/app/shared/models/chart-product";
 
 const initialProductState: ProductState = {
@@ -24,7 +24,13 @@ export const productReducer = createReducer<ProductState>(
             products: [],
             error: payload.error
         };
-    })
+    }),
+    on(UserActions.LOGOUT, (state): ProductState => {
+        return {
+            ...state,
+            products: []
+        };
+    }),
 );
 
 export const getProductState = createFeatureSelector<ProductState>('products');
@@ -44,6 +50,11 @@ export const getProductsByYear =  (year: number) => createSelector(
         
         return  chartProduct;
     })
+);
+
+export const getLoadingStatus =  createSelector(
+    getProducts,
+    products => !(products.length > 0)
 );
 
 export const getProductNames =  createSelector(

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, Observable, tap, throwError } from 'rxjs';
+import { catchError, Observable, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Product } from '../shared/models/product';
 
@@ -15,7 +15,7 @@ export class ProductService {
   constructor(private http: HttpClient) { }
 
   getProducts(): Observable<Product[]> {
-    
+
     return this.http.get<Product[]>(this.baseUrl + this.productsUrl)
       .pipe(
         catchError(this.handleError)

@@ -1,9 +1,18 @@
-<mat-tab-group animationDuration="0ms">
-    <!-- <mat-tab label="PnL"><aa-pnl ></aa-pnl></mat-tab> -->
-    <mat-tab label="Trends"><aa-trends></aa-trends></mat-tab>
-    <mat-tab label="Recent Movement" [disabled]="!(canViewCharts$ | async)"><aa-recent-movement></aa-recent-movement></mat-tab>
-</mat-tab-group>
+<div fxLayoutAlign="center center" *ngIf="(loading$ | async)" style="padding-top:160px;">
+    <div fxLayout="column" fxLayoutGap="20px" style="width:600px;">
+        <p>loading data</p>
+        <mat-progress-bar mode="buffer"></mat-progress-bar>
+    </div>
+</div>
+
+<div [hidden]="loading$ | async">
+    <mat-tab-group animationDuration="0ms">
+        <mat-tab label="Trends"><aa-trends></aa-trends></mat-tab>
+        <mat-tab label="Recent Movement" [disabled]="!(canViewCharts$ | async)"><aa-recent-movement></aa-recent-movement></mat-tab>
+    </mat-tab-group>
+</div>
 
 <div fxLayoutAlign="center center" class="error-box" *ngIf="errorMessage$ | async as errorMessage">
     <span>{{errorMessage}}</span>
 </div>
+
