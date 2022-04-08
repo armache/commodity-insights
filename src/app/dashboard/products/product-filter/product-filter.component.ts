@@ -2,9 +2,9 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
-import { ProductFilterService } from 'src/app/core/product-filter.service';
 import { getAvailableYears, getProductNames } from '../state/product.reducer';
 import { ProductState } from '../state/product.state';
+import { ProductFilterService } from './product-filter.service';
 
 @Component({
   selector: 'aa-product-filter',

@@ -1,4 +1,4 @@
-import { HistoricalPnl, MonthlyPnl } from "./product"
+import { HistoricalPnl } from "./product"
 
 export class ChartProduct {
     name: string | undefined

@@ -2,9 +2,9 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { getCanViewCharts } from '../user/state/user.reducer';
-import { getLoadingStatus, getProductError } from './state/product.reducer';
-import * as ProductActions from '../dashboard/state/product.actions';
-import { ProductState } from './state/product.state';
+import { getLoadingStatus, getProductError } from './products/state/product.reducer';
+import * as ProductActions from './products/state/product.actions';
+import { ProductState } from './products/state/product.state';
 
 @Component({
   selector: 'app-dashboard',

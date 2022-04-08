@@ -3,15 +3,15 @@ import { Store } from '@ngrx/store';
 import { ChartConfiguration, ChartEvent, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 import { Subscription } from 'rxjs';
-import { ProductFilterService } from 'src/app/core/product-filter.service';
 import { ChartProduct, Months } from 'src/app/shared/models/chart-product';
 import { MonthlyPnl, Product } from 'src/app/shared/models/product';
-import { getProductsByYear } from '../state/product.reducer';
+import { ProductFilterService } from './product-filter/product-filter.service';
+import { getProductsByYear } from './state/product.reducer';
 
 @Component({
-  selector: 'aa-trends',
-  templateUrl: './trends.component.html',
-  styleUrls: ['./trends.component.css'],
+  selector: 'aa-products',
+  templateUrl: './products.component.html',
+  styleUrls: ['./products.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TrendsComponent implements OnInit, OnDestroy {
@@ -19,11 +19,11 @@ export class TrendsComponent implements OnInit, OnDestroy {
   months = Months;
   yearSub: Subscription | undefined;
   toggleSub: Subscription | undefined;
-  
+
   constructor(private store: Store<Product>, private productFilterService: ProductFilterService) { }
-  
-  ngOnInit(): void {    
-    
+
+  ngOnInit(): void {
+
     this.yearSub = this.productFilterService.selectedYearSubject$.subscribe((year: number) => {
       this.getProductsFilteredByYear(year);
     });
@@ -48,21 +48,23 @@ export class TrendsComponent implements OnInit, OnDestroy {
   private getProductsFilteredByYear(year: number) {
     this.store.select(getProductsByYear(year)).subscribe((chartProducts: ChartProduct[]) => {
 
-      this.lineChartData.labels = [];
-      this.lineChartData.datasets = [];
+      if (chartProducts && chartProducts.length > 0) {
+        this.lineChartData.labels = [];
+        this.lineChartData.datasets = [];
 
-      chartProducts[0].historicalPnl?.monthlyPnls?.forEach((item: MonthlyPnl) => {
-        this.lineChartData.labels?.push(this.months[item.month]);
-      });
-   
-      chartProducts.forEach(chartProduct => {
-        if(chartProduct.historicalPnl){
-          let monthlyClosingPnlList = chartProduct.historicalPnl.monthlyPnls.map(a => a.closingPnl);
-          this.lineChartData.datasets.push({data: monthlyClosingPnlList, label: chartProduct.name});
-        }
-      });
+        chartProducts[0].historicalPnl?.monthlyPnls?.forEach((item: MonthlyPnl) => {
+          this.lineChartData.labels?.push(this.months[item.month]);
+        });
 
-      this.chart?.update();
+        chartProducts.forEach(chartProduct => {
+          if (chartProduct.historicalPnl) {
+            let monthlyClosingPnlList = chartProduct.historicalPnl.monthlyPnls.map(a => a.closingPnl);
+            this.lineChartData.datasets.push({ data: monthlyClosingPnlList, label: chartProduct.name });
+          }
+        });
+
+        this.chart?.update();
+      }
     });
   }
 
@@ -81,9 +83,9 @@ export class TrendsComponent implements OnInit, OnDestroy {
       // We use this empty structure as a placeholder for dynamic theming.
       x: {},
       'y-axis-0':
-        {
-          position: 'left',
-        },
+      {
+        position: 'left',
+      },
       'y-axis-1': {
         position: 'right',
         grid: {

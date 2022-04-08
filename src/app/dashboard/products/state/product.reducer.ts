@@ -1,7 +1,7 @@
 import { createFeatureSelector, createReducer, createSelector, on } from "@ngrx/store";
 import { ProductState } from "./product.state";
 import * as ProductActions from './product.actions';
-import * as UserActions from '../../user/state/user.actions';
+import * as UserActions from '../../../user/state/user.actions';
 import { ChartProduct } from "src/app/shared/models/chart-product";
 
 const initialProductState: ProductState = {

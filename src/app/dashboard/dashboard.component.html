@@ -7,8 +7,8 @@
 
 <div [hidden]="loading$ | async">
     <mat-tab-group animationDuration="0ms">
-        <mat-tab label="Trends"><aa-trends></aa-trends></mat-tab>
-        <mat-tab label="Recent Movement" [disabled]="!(canViewCharts$ | async)"><aa-recent-movement></aa-recent-movement></mat-tab>
+        <mat-tab label="PnL Trends"><aa-products></aa-products></mat-tab>
+        <mat-tab label="Trade Logs" [disabled]="!(canViewCharts$ | async)"><aa-trade-logs></aa-trade-logs></mat-tab>
     </mat-tab-group>
 </div>
 

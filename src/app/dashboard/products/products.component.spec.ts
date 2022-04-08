@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RecentMovementComponent } from './recent-movement.component';
+import { TrendsComponent } from './products.component';
 
-describe('RecentMovementComponent', () => {
-  let component: RecentMovementComponent;
-  let fixture: ComponentFixture<RecentMovementComponent>;
+describe('TrendsComponent', () => {
+  let component: TrendsComponent;
+  let fixture: ComponentFixture<TrendsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RecentMovementComponent ]
+      declarations: [ TrendsComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RecentMovementComponent);
+    fixture = TestBed.createComponent(TrendsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

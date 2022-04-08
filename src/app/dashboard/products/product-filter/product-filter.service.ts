@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { MatCheckbox } from '@angular/material/checkbox';
 import { Store } from '@ngrx/store';
 import { Subject, Subscription } from 'rxjs';
-import { getAvailableYears } from '../dashboard/state/product.reducer';
-import { ProductState } from '../dashboard/state/product.state';
+import { getAvailableYears } from '../state/product.reducer';
+import { ProductState } from '../state/product.state';
 
 @Injectable({
   providedIn: 'root'
