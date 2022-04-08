@@ -95,10 +95,4 @@ export class KeyMetricsTableComponent implements OnInit, OnDestroy {
       }
     });
   }
-
-  public doSmth(chartProduct: ChartProduct, keyMetric: IKeyMetric) {
-    let monthlyPnl = chartProduct.historicalPnl?.monthlyPnls.find(a => this.months[a.month] === keyMetric.month);
-
-    return monthlyPnl?.closingPnl;
-  }
 }

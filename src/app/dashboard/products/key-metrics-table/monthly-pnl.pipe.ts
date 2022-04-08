@@ -1,0 +1,18 @@
+import { Pipe, PipeTransform } from '@angular/core';
+import { ChartProduct, Months } from 'src/app/shared/models/chart-product';
+import { IKeyMetric } from './key-metrics-table.component';
+
+@Pipe({
+  name: 'monthlyPnl'
+})
+export class MonthlyPnlPipe implements PipeTransform {
+
+  months = Months;
+  
+  transform(keyMetric: IKeyMetric, chartProduct: ChartProduct): number | undefined {
+
+    let monthlyPnl = chartProduct.historicalPnl?.monthlyPnls.find(a => this.months[a.month] === keyMetric.month);
+    return monthlyPnl?.closingPnl;
+  }
+
+}

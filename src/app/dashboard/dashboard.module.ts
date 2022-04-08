@@ -15,6 +15,7 @@ import { TradeLogsComponent } from './trade-logs/trade-logs.component';
 import { ProductFilterService } from './products/product-filter/product-filter.service';
 import { ProductFilterComponent } from './products/product-filter/product-filter.component';
 import { ProductService } from './products/product.service';
+import { MonthlyPnlPipe } from './products/key-metrics-table/monthly-pnl.pipe';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ProductService } from './products/product.service';
     TrendsComponent,
     ProductFilterComponent,
     KeyMetricsTableComponent,
-    TradeLogsComponent
+    TradeLogsComponent,
+    MonthlyPnlPipe
   ],
   imports: [
     DashboardRoutingModule,
