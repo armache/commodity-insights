@@ -26,10 +26,10 @@ import { environment } from 'src/environments/environment';
     UserModule,
     DashboardModule,
     StoreModule.forRoot({}, {}),
-    !environment.production ? StoreDevtoolsModule.instrument({
+    StoreDevtoolsModule.instrument({
       name: 'Commodity Insights',
       maxAge: 25
-    }) : [],
+    }),
     EffectsModule.forRoot([]),
     NgChartsModule,
     HttpClientModule
