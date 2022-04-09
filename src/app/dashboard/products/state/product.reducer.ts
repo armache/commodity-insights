@@ -30,7 +30,7 @@ export const productReducer = createReducer<ProductState>(
             ...state,
             products: []
         };
-    }),
+    })
 );
 
 export const getProductState = createFeatureSelector<ProductState>('productState');

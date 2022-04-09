@@ -6,20 +6,20 @@ import { EffectsModule } from '@ngrx/effects';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { productReducer } from './state/product.reducer';
 import { ProductEffects } from './state/product.effects';
-import { TrendsComponent } from './products.component';
+import { ProductsComponent } from './products.component';
 import { ProductFilterComponent } from './product-filter/product-filter.component';
 import { KeyMetricsTableComponent } from './key-metrics-table/key-metrics-table.component';
 import { MonthlyPnlPipe } from './key-metrics-table/monthly-pnl.pipe';
 
 @NgModule({
   declarations: [
-    TrendsComponent,
+    ProductsComponent,
     ProductFilterComponent,
     KeyMetricsTableComponent,
     MonthlyPnlPipe
   ],
   exports: [
-    TrendsComponent
+    ProductsComponent
   ],
   imports: [
     SharedModule,

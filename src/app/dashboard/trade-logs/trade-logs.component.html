@@ -1,1 +1,47 @@
-<p>trade-logs works!</p>
+<div>
+    <h2>Trade logs for most recent 5 calendar days</h2>
+    <table style="width:100%" mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">    
+        <ng-container matColumnDef="model">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Model</th>
+            <td mat-cell *matCellDef="let element">{{element.model}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="commodity">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Commodity</th>
+            <td mat-cell *matCellDef="let element">{{element.commodity}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="date">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Date</th>
+            <td mat-cell *matCellDef="let element">{{element.date | date}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="contract">
+            <th mat-header-cell *matHeaderCellDef>Contract</th>
+            <td mat-cell *matCellDef="let element">{{element.contract}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="price">
+            <th mat-header-cell *matHeaderCellDef>Price</th>
+            <td mat-cell *matCellDef="let element">{{element.price | currency: 'GBP'}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="position">
+            <th mat-header-cell *matHeaderCellDef style="text-align:center">Position</th>
+            <td mat-cell *matCellDef="let element" style="text-align:center">{{element.position}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="newTradeAction">
+            <th mat-header-cell *matHeaderCellDef style="text-align:center">New Trade Action</th>
+            <td mat-cell *matCellDef="let element" style="text-align:center">{{element.newTradeAction}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="pnlDaily">
+            <th mat-header-cell *matHeaderCellDef>PnL</th>
+            <td mat-cell *matCellDef="let element">{{element.pnlDaily | currency: 'GBP'}}</td>
+        </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>

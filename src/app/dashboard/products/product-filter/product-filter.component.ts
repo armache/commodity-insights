@@ -36,7 +36,6 @@ export class ProductFilterComponent implements OnInit, OnDestroy {
   }
 
   productYearChanged($evt: string) {
-    console.log('$evt: ' + $evt)
     this.productFilterService.changeYearFilter(+$evt);
     this.showAllProductsOnChart();
   }

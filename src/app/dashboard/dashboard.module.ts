@@ -3,7 +3,7 @@ import { SharedModule } from '../shared/shared.module';
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
-import { TrendsComponent } from './products/products.component';
+import { ProductsComponent } from './products/products.component';
 import { NgChartsModule } from 'ng2-charts';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';

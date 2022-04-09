@@ -15,11 +15,61 @@ import { getProductsByYear } from './state/product.reducer';
   styleUrls: ['./products.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TrendsComponent implements OnInit, OnDestroy {
+export class ProductsComponent implements OnInit, OnDestroy {
 
   months = Months;
   yearSub: Subscription | undefined;
   toggleSub: Subscription | undefined;
+
+  @ViewChild(BaseChartDirective) chart?: BaseChartDirective;
+
+  public lineChartType: ChartType = 'line';
+
+  public lineChartData: ChartConfiguration['data'] = {
+    datasets: [],
+    labels: []
+  };
+
+  public lineChartOptions: ChartConfiguration['options'] = {
+    elements: {
+      line: {
+        tension: 0.5
+      }
+    },
+    scales: {
+      x: {},
+      'y-axis-0':
+      {
+        position: 'left',
+      },
+      'y-axis-1': {
+        position: 'right',
+        grid: {
+          color: 'rgba(255,0,0,0.3)',
+        },
+        ticks: {
+          color: 'red'
+        }
+      }
+    },
+    plugins: {
+      tooltip: {
+          callbacks: {
+              label: function(context) {
+                  let label = context.dataset.label || '';
+
+                  if (label) {
+                      label += ': ';
+                  }
+                  if (context.parsed.y !== null) {
+                      label += new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'GBP' }).format(context.parsed.y);
+                  }
+                  return label;
+              }
+          }
+      }
+    }
+  };
 
   constructor(private store: Store<Product>, private productFilterService: ProductFilterService) { }
 
@@ -37,13 +87,6 @@ export class TrendsComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.yearSub?.unsubscribe();
     this.toggleSub?.unsubscribe();
-  }
-
-  private showHideProductChart(productName: string) {
-
-    let productIndex = this.lineChartData.datasets.findIndex(a => a.label === productName);
-    let isHidden = this.chart?.isDatasetHidden(productIndex);
-    this.chart?.hideDataset(productIndex, !isHidden);
   }
 
   private getProductsFilteredByYear(year: number) {
@@ -69,51 +112,10 @@ export class TrendsComponent implements OnInit, OnDestroy {
     });
   }
 
-  public lineChartData: ChartConfiguration['data'] = {
-    datasets: [],
-    labels: []
-  };
+  private showHideProductChart(productName: string) {
 
-  public lineChartOptions: ChartConfiguration['options'] = {
-    elements: {
-      line: {
-        tension: 0.5
-      }
-    },
-    scales: {
-      // We use this empty structure as a placeholder for dynamic theming.
-      x: {},
-      'y-axis-0':
-      {
-        position: 'left',
-      },
-      'y-axis-1': {
-        position: 'right',
-        grid: {
-          color: 'rgba(255,0,0,0.3)',
-        },
-        ticks: {
-          color: 'red'
-        }
-      }
-    }
-  };
-
-  public lineChartType: ChartType = 'line';
-
-  @ViewChild(BaseChartDirective) chart?: BaseChartDirective;
-
-  // events
-  public chartClicked({ event, active }: { event?: ChartEvent, active?: {}[] }): void {
-    console.log(event, active);
-  }
-
-  public chartHovered({ event, active }: { event?: ChartEvent, active?: {}[] }): void {
-    console.log(event, active);
-  }
-
-  public hideOne(): void {
-    const isHidden = this.chart?.isDatasetHidden(1);
-    this.chart?.hideDataset(1, !isHidden);
+    let productIndex = this.lineChartData.datasets.findIndex(a => a.label === productName);
+    let isHidden = this.chart?.isDatasetHidden(productIndex);
+    this.chart?.hideDataset(productIndex, !isHidden);
   }
 }
