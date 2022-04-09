@@ -43,12 +43,11 @@ export const getProducts =  createSelector(
 export const getProductsByYear =  (year: number) => createSelector(
     getProductState,
     state => state.products.map(p => {
-        
-        let chartProduct = new ChartProduct();
-        chartProduct.name = `${p.modelName}_${p.commodityName}`;
-        chartProduct.historicalPnl = p.historicalPnl.find(a => a.year === year)
-        
-        return  chartProduct;
+
+        return <ChartProduct>{
+            name: `${p.modelName}_${p.commodityName}`,
+            historicalPnl: p.historicalPnl.find(a => a.year === year)
+        }
     })
 );
 

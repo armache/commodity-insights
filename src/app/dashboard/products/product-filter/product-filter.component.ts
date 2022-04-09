@@ -16,7 +16,6 @@ export class ProductFilterComponent implements OnInit, OnDestroy {
   years$: Observable<Number[]> | undefined
   productNames$: Observable<string[]> | undefined
   subYear: Subscription | undefined
-  //subProductChecked: Subscription | undefined
   allProducts = new FormControl();
   
   productChecked: boolean = true;
