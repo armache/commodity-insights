@@ -6,7 +6,7 @@ import * as UserActions from "./user.actions";
 const initialUserState: UserState = {
     userType: UserType.None,
     isAuthenticated: false,
-    canViewCharts: false,
+    canViewLogs: false,
     error: ''
 };
 
@@ -17,7 +17,7 @@ export const userReducer = createReducer<UserState>(
             ...state,
             userType: payload.user.userType,
             isAuthenticated: payload.user.isAuthenticated,
-            canViewCharts: (payload.user.userType === UserType.Trader) ? true : false,
+            canViewLogs: (payload.user.userType === UserType.Trader) ? true : false,
             error: ''            
         }
     }),
@@ -26,7 +26,7 @@ export const userReducer = createReducer<UserState>(
             ...state,
             userType: UserType.None,
             isAuthenticated: false,
-            canViewCharts: false,
+            canViewLogs: false,
             error: payload.error
         }
     }),
@@ -35,7 +35,7 @@ export const userReducer = createReducer<UserState>(
             ...state,
             userType: UserType.None,
             isAuthenticated: false,
-            canViewCharts: false
+            canViewLogs: false
         };
     })
 );
@@ -52,7 +52,7 @@ export const getAuthError =  createSelector(
     state => state.error
 );
 
-export const getCanViewCharts =  createSelector(
+export const getCanViewLogs =  createSelector(
     getUserState,
-    state => state.canViewCharts
+    state => state.canViewLogs
 );

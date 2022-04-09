@@ -4,7 +4,8 @@ import { TradeLogsComponent } from './trade-logs.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { tradelogReducer } from './state/trade-log.reducer';
+import { tradeLogReducer } from './state/trade-log.reducer';
+import { TradeLogEffects } from './state/trade-log.effects';
 
 
 
@@ -17,8 +18,8 @@ import { tradelogReducer } from './state/trade-log.reducer';
   ],
   imports: [
     SharedModule,
-    StoreModule.forFeature('tradeLogState', tradelogReducer),
-    EffectsModule.forFeature([]),
+    StoreModule.forFeature('tradeLogState', tradeLogReducer),
+    EffectsModule.forFeature([TradeLogEffects]),
   ]
 })
 export class TradeLogsModule { }

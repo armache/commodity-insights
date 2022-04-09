@@ -14,10 +14,10 @@ import { KeyMetricsTableComponent } from './products/key-metrics-table/key-metri
 import { TradeLogsComponent } from './trade-logs/trade-logs.component';
 import { ProductFilterService } from './products/product-filter/product-filter.service';
 import { ProductFilterComponent } from './products/product-filter/product-filter.component';
-import { ProductService } from './products/product.service';
 import { MonthlyPnlPipe } from './products/key-metrics-table/monthly-pnl.pipe';
 import { ProductsModule } from './products/products.module';
 import { TradeLogsModule } from './trade-logs/trade-logs.module';
+import { DashboardService } from './dashboard.service';
 
 @NgModule({
   declarations: [
@@ -31,7 +31,7 @@ import { TradeLogsModule } from './trade-logs/trade-logs.module';
   ],
 
   providers: [
-    ProductService,
+    DashboardService,
     ProductFilterService
   ]
 })

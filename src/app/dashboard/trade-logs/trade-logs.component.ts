@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { getTradeLogs } from './state/trade-log.reducer';
+import { TradeLogState } from './state/trade-log.state';
 
 @Component({
   selector: 'aa-trade-logs',
@@ -7,9 +10,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TradeLogsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private store: Store<TradeLogState>) { }
 
   ngOnInit(): void {
+    this.store.select(getTradeLogs).subscribe(a => console.log('trade logs: ', a));
   }
 
 }

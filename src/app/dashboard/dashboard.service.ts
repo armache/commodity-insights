@@ -3,11 +3,12 @@ import { Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
 import { Product } from 'src/app/shared/models/product';
 import { environment } from 'src/environments/environment';
+import { TradeLog } from '../shared/models/trade-log';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProductService {
+export class DashboardService {
 
   private baseUrl = environment.apiUrl;
   private productsUrl = 'api/products';
@@ -23,9 +24,9 @@ export class ProductService {
       );
   }
 
-  getTradeLogs(): Observable<Product[]> {
+  getTradeLogs(): Observable<TradeLog[]> {
 
-    return this.http.get<Product[]>(this.baseUrl + this.tradeLogsUrl)
+    return this.http.get<TradeLog[]>(this.baseUrl + this.tradeLogsUrl)
       .pipe(
         catchError(this.handleError)
       );

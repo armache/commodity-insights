@@ -52,8 +52,8 @@ export const getProductsByYear =  (year: number) => createSelector(
 );
 
 export const getLoadingStatus =  createSelector(
-    getProducts,
-    products => !(products.length > 0)
+    getProductState,
+    productState => !(productState.products.length > 0)
 );
 
 export const getProductNames =  createSelector(
