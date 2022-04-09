@@ -1,6 +1,6 @@
 import { Component, ViewChild, OnInit, ChangeDetectionStrategy, OnDestroy } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { ChartConfiguration, ChartEvent, ChartType } from 'chart.js';
+import { ChartConfiguration, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 import { Subscription } from 'rxjs';
 import { ChartProduct } from 'src/app/shared/models/chart-product';
@@ -31,6 +31,8 @@ export class ProductsComponent implements OnInit, OnDestroy {
   };
 
   public lineChartOptions: ChartConfiguration['options'] = {
+    responsive: true,
+    maintainAspectRatio: false,
     elements: {
       line: {
         tension: 0.5
@@ -67,6 +69,11 @@ export class ProductsComponent implements OnInit, OnDestroy {
                   return label;
               }
           }
+      },
+      legend: {
+        onClick: function (e) {
+          return false
+        }
       }
     }
   };
