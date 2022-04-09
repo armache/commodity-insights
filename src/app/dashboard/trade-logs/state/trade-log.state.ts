@@ -1,10 +1,6 @@
-import * as AppState from '../../../state/app.state';
-
-export interface State extends AppState.State {
-    products: TradeLogState;
-}
+import { TradeLog } from 'src/app/shared/models/trade-log';
 
 export interface TradeLogState {
-    tradelogs: string[];
+    tradelogs: TradeLog[];
     error: string;
 }
