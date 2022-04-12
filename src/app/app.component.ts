@@ -7,7 +7,7 @@ import { UserState } from './user/state/user.state';
 import * as UserActions from './user/state/user.actions';
 
 @Component({
-  selector: 'app-root',
+  selector: 'aa-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   animations: [slideInAnimation]

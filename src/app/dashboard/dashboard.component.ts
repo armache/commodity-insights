@@ -10,7 +10,6 @@ import { TradeLogState } from './trade-logs/state/trade-log.state';
 import { getTradeLogError } from './trade-logs/state/trade-log.reducer';
 
 @Component({
-  selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
