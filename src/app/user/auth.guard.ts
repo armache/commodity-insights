@@ -22,7 +22,9 @@ export class AuthGuard implements CanActivate {
 
       return this.store.select(getIsAuthenticatd).pipe(
         map(auth => {
-          if(auth) return true;
+          if(auth) {
+            return true;
+          } 
           else {
             this.authService.redirectUrl = state.url;
             this.router.navigate(['/login']);

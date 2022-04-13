@@ -1,7 +1,7 @@
 
 <mat-toolbar color="primary">
-  <mat-icon aria-hidden="false" aria-label="Example home icon" size="60">insights</mat-icon>&nbsp;&nbsp;
-  <span>Commodity Insights</span>
+  <mat-icon aria-hidden="false" aria-label="logo" size="60">insights</mat-icon>&nbsp;&nbsp;
+  <span>{{title}}</span>
   <span style="flex: 1 1 auto;"></span>
 
   <div *ngIf="(user$ | async)?.isAuthenticated" fxLayoutAlign="center center">

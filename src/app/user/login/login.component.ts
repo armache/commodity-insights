@@ -20,10 +20,9 @@ export class LoginComponent implements OnInit {
   selectedRole: UserType = UserType.None;
   errorMessage$: Observable<string> | undefined;
 
-  constructor(private authService: AuthService, private router: Router,
-    private store: Store<UserState>) { 
-      
-    }
+  constructor(private store: Store<UserState>) {
+
+  }
 
   ngOnInit(): void {
     this.options = Object.keys(this.roles)
@@ -32,7 +31,7 @@ export class LoginComponent implements OnInit {
     this.errorMessage$ = this.store.select(getAuthError);
   }
 
-  change($evt: string){
+  change($evt: string) {
     this.selectedRole = <UserType>$evt;
   }
 

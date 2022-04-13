@@ -14,6 +14,7 @@ import * as UserActions from './user/state/user.actions';
 })
 export class AppComponent implements OnInit {
   user$: Observable<UserState> | undefined;
+  title = 'Commodity Insights';
 
   constructor(private store: Store<UserState>) {
   }

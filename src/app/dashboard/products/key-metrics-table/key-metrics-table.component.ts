@@ -8,20 +8,14 @@ import { Product } from 'src/app/shared/models/product';
 import { ProductFilterService } from '../product-filter/product-filter.service';
 import { getProductsByYear } from '../state/product.reducer';
 
-export interface IKeyMetric {
-  month: string
+export interface ProductData {
   closingPnl: number
   productName: string
 }
 
-export interface IProductData {
-  closingPnl: number
-  productName: string
-}
-
-export interface IMonthlyData {
+export interface MonthlyData {
   month: string
-  productData: IProductData[]
+  productData: ProductData[]
 }
 
 @Component({
@@ -32,14 +26,13 @@ export interface IMonthlyData {
 export class KeyMetricsTableComponent implements OnInit, OnDestroy {
 
   displayedColumns: string[] = [];
-  dataSource = new MatTableDataSource<IMonthlyData>()
+  dataSource = new MatTableDataSource<MonthlyData>()
   sub: Subscription | undefined
   selectedYear: number | undefined
   productNames: string[] = []
   months = Months;
   chartProducts: ChartProduct[] = []
-  keyMetrics: IKeyMetric[] = new Array<IKeyMetric>()
-  monthlyData: IMonthlyData[] = new Array<IMonthlyData>()
+  monthlyData: MonthlyData[] = new Array<MonthlyData>()
 
   constructor(private store: Store<Product>, private productFilterService: ProductFilterService) { }
 
@@ -63,7 +56,6 @@ export class KeyMetricsTableComponent implements OnInit, OnDestroy {
       if (chartProducts && chartProducts.length > 0) {
         this.productNames = [];
         this.displayedColumns = [];
-        this.keyMetrics = [];
 
         this.chartProducts = [];
         this.monthlyData = [];
@@ -75,17 +67,17 @@ export class KeyMetricsTableComponent implements OnInit, OnDestroy {
         if (months) {
           months.forEach(month => {
 
-            let productData = new Array<IProductData>();
+            let productData = new Array<ProductData>();
             chartProducts.forEach(chartProduct => {
 
               let data = chartProduct.historicalPnl?.monthlyPnls.filter(a => a.month === month)
-                .map(a => <IProductData>({ closingPnl: a.closingPnl, productName: chartProduct.name }));
+                .map(a => <ProductData>({ closingPnl: a.closingPnl, productName: chartProduct.name }));
 
               if (data)
                 productData.push(...data);
             });
 
-            this.monthlyData.push(<IMonthlyData>{ month: this.months[month], productData });
+            this.monthlyData.push(<MonthlyData>{ month: this.months[month], productData });
           })
         }
 

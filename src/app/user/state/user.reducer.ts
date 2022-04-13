@@ -3,7 +3,7 @@ import { UserType } from "../user";
 import { UserState } from "./user.state";
 import * as UserActions from "./user.actions";
 
-const initialUserState: UserState = {
+export const initialUserState: UserState = {
     userType: UserType.None,
     isAuthenticated: false,
     canViewLogs: false,
