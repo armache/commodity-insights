@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { User, UserType } from '../user/user';
+import { UserType } from '../user/user';
 
 import { AuthService } from './auth.service';
 

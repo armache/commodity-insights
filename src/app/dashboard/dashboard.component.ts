@@ -25,7 +25,6 @@ export class DashboardComponent implements OnInit {
   constructor(private productStore: Store<ProductState>, private tradeLogtStore: Store<TradeLogState>) { }
 
   ngOnInit(): void {
-    //this.canViewLogs$ = this.productStore.select(getCanViewLogs);
     this.productErrorMessage$ = this.productStore.select(getProductError);
     this.loading$ = this.productStore.select(getLoadingStatus);    
 
