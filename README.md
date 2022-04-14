@@ -11,6 +11,8 @@ Users can show/hide products on the chart which illustrates the PnL performance 
 
 API link: https://angloamericanapi.azurewebsites.net/
 
+Backend source code: https://github.com/armache/CommodityInsights-API
+
 ## Built With
 
 - Angular 13
