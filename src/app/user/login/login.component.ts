@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { AuthService } from 'src/app/core/auth.service';
 import { getAuthError } from '../state/user.reducer';
 import { UserState } from '../state/user.state';
 import { UserType } from '../user';
@@ -20,7 +18,7 @@ export class LoginComponent implements OnInit {
   selectedRole: UserType = UserType.None;
   errorMessage$: Observable<string> | undefined;
 
-  constructor(private store: Store<UserState>) {
+  constructor(public store: Store<UserState>) {
 
   }
 

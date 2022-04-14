@@ -4,7 +4,7 @@ import * as ProductActions from './product.actions';
 import * as UserActions from '../../../user/state/user.actions';
 import { ChartProduct } from "src/app/shared/models/chart-product";
 
-const initialProductState: ProductState = {
+export const initialProductState: ProductState = {
     products: [],
     error: ''
 };

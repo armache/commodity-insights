@@ -11,7 +11,7 @@ describe('AuthGuard', () => {
     let guard: AuthGuard;
     let routeMock: any = { snapshot: {} };
     let routeStateMock: any = { snapshot: {}, url: '/dashboard' };
-    let routerMock = { navigate: jasmine.createSpy('navigate') }
+    let routerMock = { navigate: jasmine.createSpy('navigate') };
     let mockStore: MockStore<UserState>;
 
     const initialState: UserState = initialUserState;

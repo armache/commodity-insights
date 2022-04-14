@@ -1,16 +1,22 @@
-// import { TestBed } from '@angular/core/testing';
+import { HttpClientModule } from '@angular/common/http';
+import { TestBed } from '@angular/core/testing';
+import { SharedModule } from '../shared/shared.module';
+import { DashboardService } from './dashboard.service';
 
-// import { ProductService } from './product.service';
+describe('ProductService', () => {
+  let service: DashboardService;
 
-// describe('ProductService', () => {
-//   let service: ProductService;
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+        imports: [
+            HttpClientModule,
+            SharedModule
+        ]
+    });
+    service = TestBed.inject(DashboardService);
+  });
 
-//   beforeEach(() => {
-//     TestBed.configureTestingModule({});
-//     service = TestBed.inject(ProductService);
-//   });
-
-//   it('should be created', () => {
-//     expect(service).toBeTruthy();
-//   });
-// });
+  it('should be created', () => {
+    expect(service).toBeTruthy();
+  });
+});

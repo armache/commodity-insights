@@ -1,3 +1,7 @@
 .login-wrapper {
     padding-top: 160px;
 }
+
+.login-wrapper mat-form-field {
+    width:250px;
+}
