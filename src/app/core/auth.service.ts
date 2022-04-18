@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { LoginResponse } from '../shared/models/login-response';
 import { User, UserType } from '../user/user';
 
 @Injectable({
@@ -9,7 +10,7 @@ export class AuthService {
 
   redirectUrl: string = '';
 
-  login(userType: UserType): Observable<{user: User, redirectUrl: string}> {
+  login(userType: UserType): Observable<LoginResponse> {
 
     let isAuthenticated = !!(userType && userType !== UserType.None);
 

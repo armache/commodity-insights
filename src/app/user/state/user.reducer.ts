@@ -18,7 +18,7 @@ export const userReducer = createReducer<UserState>(
             userType: payload.user.userType,
             isAuthenticated: payload.user.isAuthenticated,
             canViewLogs: (payload.user.userType === UserType.Trader) ? true : false,
-            error: ''            
+            error: ''
         }
     }),
     on(UserActions.LOGIN_FAIL, (state, payload): UserState => {

@@ -40,7 +40,7 @@ export class UserEffects {
     loginFail$ = createEffect(() => 
         this.actions$.pipe(
             ofType(UserActions.LOGIN_FAIL),
-            tap(err => console.log('LOGIN_FAIL: ' + err.error))
+            tap(err => console.log(err.error))
         ),
         { dispatch: false }
     );
