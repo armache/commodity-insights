@@ -24,3 +24,7 @@ Backend source code: https://github.com/armache/CommodityInsights-API
 
 - Jasmine/Karma
 - Angular Material component harnesses
+
+## Points of interest
+###### NGRX state as chart
+![alt text](https://raw.githubusercontent.com/armache/commodity-insights/master/ngrx_state.png)
