@@ -31,9 +31,9 @@ export class DashboardComponent implements OnInit {
     this.tradeLogErrorMessage$ = this.tradeLogtStore.select(getTradeLogError);
 
     this.productStore.select(getCanViewLogs).subscribe((canViewLogs: boolean) => {
+      this.canViewLogs = canViewLogs;
       if(canViewLogs) {
         this.tradeLogtStore.dispatch(TradeLogActions.GET_TRADE_LOGS());
-        this.canViewLogs = true;
       }
     })
 
